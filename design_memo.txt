@@ -1,0 +1,23 @@
+Design Memo
+
+My waitlist works as a singly linked list. Each customer is stored inside a Node
+object. A node holds the customer's name and a next pointer that connects it to
+the following customer. The LinkedList class manages those nodes. When a VIP is
+added to the front, the new node points to the current first customer and then
+becomes the new head. When a general customer is added to the end, the program
+starts at the head and follows each next pointer until it reaches the last node.
+To remove someone, the program searches through the nodes until it finds the
+matching name. It then changes a pointer so the removed node is skipped.
+
+The head is important because it is the starting point of the entire waitlist.
+If the head is None, the waitlist is empty. It also needs special handling when
+the first customer is removed because the head must move to the second customer.
+Without the head, the program would not have a way to reach the rest of the
+customers.
+
+A real engineer might create a custom linked list when data needs to be added or
+removed often and they need more control than a normal list provides. For
+example, a ticketing company could use one when VIP customers need to move to the
+front or when support workers must remove a specific person. In a real production
+system, an engineer would probably add customer IDs, timestamps, duplicate-name
+handling, and a database so the waitlist is not lost when the program closes.
